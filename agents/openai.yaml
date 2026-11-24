@@ -1,0 +1,4 @@
+interface:
+  display_name: "Eusoft Auto Testing"
+  short_description: "Run Android tests through Pinky"
+  default_prompt: "Use $eusoft-auto-testing to test this Android project and APK, and save the report."
