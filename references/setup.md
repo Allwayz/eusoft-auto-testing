@@ -29,21 +29,22 @@ AAPT="$(find "${ANDROID_HOME:-$HOME/Library/Android/sdk}/build-tools" -type f \(
 
 ## Pinky
 
-检测：
+Pinky App 就是要装的东西。从 dmg 拖进「应用程序」，和 Homebrew cask 装的是同一个应用。`pinkyctl` 只是 Homebrew 放在 PATH 上的启动脚本，内容是执行 `/Applications/Pinky.app/Contents/MacOS/Pinky`。App 里的可执行文件接受同样的命令，包括 `mcp`。
 
-```bash
-command -v pinkyctl
-```
+下面任一成立就视为已安装，不要再要求安装：
 
-没有时，只有用户同意才运行：
+- `command -v pinkyctl` 有结果
+- `/Applications/Pinky.app` 存在
+
+只有两个都没有时，才征求同意后安装。有 Homebrew 就用：
 
 ```bash
 brew install --cask diygod/tap/pinky
 ```
 
-这是官方 Homebrew 安装，装好后命令是 `pinkyctl`，不是 `pinky`。没有 `brew` 时不要换别的安装脚本，先请用户安装 Homebrew。
+没有 Homebrew 时，不要换别的安装脚本。请用户从 [Pinky 发布页](https://github.com/DIYgod/pinky/releases/latest) 下载对应 Mac 的 dmg，把 Pinky 拖进「应用程序」。
 
-装完再运行一次 `command -v pinkyctl`。仍然没有就停。
+装完再检测一次。App 和 `pinkyctl` 仍然都没有就停。
 
 ## HomeTrans
 
